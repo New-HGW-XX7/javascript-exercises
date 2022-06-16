@@ -1,18 +1,18 @@
 const findTheOldest = function(people) {
     const totalValue = people.reduce((total, item) => {
-        if(!item.yearOfDeath) {
+        if (!item.yearOfDeath) {
             const d = new Date();
             item.yearOfDeath = d.getFullYear();
         }
-        if(item.yearOfDeath - item.yearOfBirth > total) total = item.yearOfDeath - item.yearOfBirth;
+        if (item.yearOfDeath - item.yearOfBirth > total) total = item.yearOfDeath - item.yearOfBirth;
         return total;
     }, 0);
 
     let index;
     people.forEach(item => {
-        if((item.yearOfDeath - item.yearOfBirth) === totalValue) index = people.indexOf(item);
+        if (item.yearOfDeath - item.yearOfBirth === totalValue) index = people.indexOf(item);
     });
-    
+
     return people[index];
 };
 
